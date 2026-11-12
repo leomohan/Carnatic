@@ -3,33 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rasa Geometry</title>
+<title>Raga Geometry</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Manrope:wght@500;700;800&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   /* Layout: title left, raga picker top-right; big raga pitch wheel on the left, Adi Talam wheel + raga facts on the right.
-     One dark visual world on purpose, so the saturated colours stay bright. */
-  --bg:#06060d; --panel:#10101c; --disc:#0b0b16; --line:#2a2a42; --ink:#ffffff; --muted:#aeb1d6; --dim:#4c4f70;
-  --aro:#ffc61a; --avaro:#ff2e88; --laghu:#18e4ff; --dru1:#9dff2e; --dru2:#ff7a1a;
-  --display:"Unbounded","Arial Black",system-ui,sans-serif;
-  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
-  color-scheme:dark;
+     Light page, saturated colours deep enough to read on white. */
+  --bg:#ffffff; --panel:#f5f6fa; --disc:#ffffff; --line:#dcdfea; --ink:#15162b; --muted:#565a7a; --dim:#c2c5d6;
+  --aro:#e89a00; --aro-ink:#a86400; --avaro:#e0207a; --laghu:#0088c8; --dru1:#2f9e00; --dru2:#ee5f00;
+  --display:"Source Sans 3",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --mono:"Source Sans 3",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body)}
 .wrap{max-width:1280px;margin:0 auto;padding:20px clamp(16px,3vw,32px) 32px;display:flex;flex-direction:column;gap:20px}
 header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
-h1{font-family:var(--display);font-weight:800;font-size:clamp(26px,3.6vw,40px);margin:0;line-height:1.05;text-wrap:balance}
-h1 span{color:var(--aro)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,4vw,44px);margin:0;line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
+h1 span{color:var(--aro-ink)}
 .sub{margin:8px 0 0;color:var(--muted);font-weight:700;font-size:15px}
 .picker{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
-.picker label,.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:800}
-select{appearance:none;-webkit-appearance:none;min-width:270px;font-family:var(--display);font-weight:800;font-size:17px;color:var(--ink);
-  background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10' viewBox='0 0 16 10'%3E%3Cpath d='M2 2l6 6 6-6' fill='none' stroke='%23ffc61a' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;
-  border:2px solid var(--aro);border-radius:12px;padding:12px 46px 12px 16px;cursor:pointer;box-shadow:0 0 18px rgba(255,198,26,.35)}
+.picker label,.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:800}
+select{appearance:none;-webkit-appearance:none;min-width:270px;font-family:var(--display);font-weight:700;font-size:18px;color:var(--ink);
+  background:var(--panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10' viewBox='0 0 16 10'%3E%3Cpath d='M2 2l6 6 6-6' fill='none' stroke='%23a86400' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;
+  border:2px solid var(--aro);border-radius:12px;padding:12px 46px 12px 16px;cursor:pointer;box-shadow:0 2px 10px rgba(232,154,0,.25)}
 select option{background:var(--panel);color:var(--ink);font-family:var(--body)}
 select:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--laghu);outline-offset:3px}
 main{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;align-items:start}
@@ -37,7 +37,7 @@ main{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;a
 .panel{background:var(--panel);border:2px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px}
 .side{display:flex;flex-direction:column;gap:20px}
 .phead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-h2{margin:0;font-family:var(--display);font-weight:800;font-size:22px;text-wrap:balance}
+h2{margin:0;font-family:var(--display);font-weight:700;font-size:24px;text-wrap:balance}
 svg{display:block;width:100%;height:auto}
 .legend{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:14px;font-weight:700;color:var(--muted)}
 .legend span{display:inline-flex;align-items:center;gap:8px}
@@ -48,47 +48,48 @@ svg{display:block;width:100%;height:auto}
 .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .row .eyebrow{width:96px;flex:none}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-family:var(--mono);font-weight:800;font-size:15px;padding:5px 9px;border-radius:8px;border:2px solid;line-height:1}
+.chip{font-family:var(--mono);font-weight:700;font-size:16px;font-variant-numeric:tabular-nums;padding:5px 9px;border-radius:8px;border:2px solid;line-height:1}
 .chip sub{font-size:.72em}
-.chip.a{color:var(--aro);border-color:var(--aro);background:rgba(255,198,26,.10)}
-.chip.v{color:var(--avaro);border-color:var(--avaro);background:rgba(255,46,136,.10)}
-.chip.a.diff{background:var(--aro);color:#140e00}
-.chip.v.diff{background:var(--avaro);color:#16000b}
+.chip.a{color:var(--aro-ink);border-color:var(--aro);background:rgba(232,154,0,.10)}
+.chip.v{color:var(--avaro);border-color:var(--avaro);background:rgba(224,32,122,.08)}
+.chip.a.diff{background:var(--aro);color:#1c1200}
+.chip.v.diff{background:var(--avaro);color:#fff}
 .mood{font-size:16px;font-weight:800}
-.note{font-size:15px;line-height:1.5;color:#dcdef5;font-weight:600;max-width:62ch;margin:0}
+.note{font-size:16px;line-height:1.5;color:var(--ink);font-weight:400;max-width:62ch;margin:0}
 .controls{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-top:4px}
-.play{background:var(--aro);color:#140e00;font-family:var(--display);font-weight:800;font-size:15px;border:0;border-radius:12px;padding:13px 20px;cursor:pointer;box-shadow:0 0 22px rgba(255,198,26,.45)}
-.play.on{background:var(--avaro);color:#fff;box-shadow:0 0 22px rgba(255,46,136,.5)}
+.play{background:var(--aro);color:#1c1200;font-family:var(--display);font-weight:700;font-size:17px;border:0;border-radius:12px;padding:12px 20px;cursor:pointer;box-shadow:0 2px 10px rgba(232,154,0,.35)}
+.play.on{background:var(--avaro);color:#fff;box-shadow:0 2px 10px rgba(224,32,122,.35)}
 .tempo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px;color:var(--muted)}
 .tempo input{accent-color:var(--aro);width:130px}
-.status{font-family:var(--mono);font-weight:800;font-size:14px;color:var(--laghu);min-height:1.3em}
-footer{color:var(--muted);font-size:13px;font-weight:600;line-height:1.5;max-width:90ch}
+.status{font-family:var(--mono);font-weight:700;font-size:15px;color:var(--laghu);min-height:1.3em}
+footer{color:var(--muted);font-size:14px;font-weight:400;line-height:1.5;max-width:90ch}
 
 /* SVG */
 .disc{fill:var(--disc);stroke:var(--line);stroke-width:2}
-.spoke{stroke:#1f2036;stroke-width:2}
-.guide{fill:none;stroke-width:2;stroke-dasharray:3 7;opacity:.45}
-.lbl{font-family:var(--mono);font-weight:800;font-size:17px;text-anchor:middle;dominant-baseline:central}
-.f-both{fill:var(--ink)} .f-aro{fill:var(--aro)} .f-av{fill:var(--avaro)} .f-dim{fill:var(--dim)}
+.spoke{stroke:var(--line);stroke-width:2}
+.guide{fill:none;stroke-width:2;stroke-dasharray:3 7;opacity:.6}
+.lbl{font-family:var(--mono);font-weight:700;font-size:17px;text-anchor:middle;dominant-baseline:central}
+.f-both{fill:var(--ink)} .f-aro{fill:var(--aro)} text.f-aro,tspan.f-aro{fill:var(--aro-ink)} .f-av{fill:var(--avaro)} .f-dim{fill:var(--dim)}
 .s-both{stroke:var(--ink)} .s-aro{stroke:var(--aro)} .s-av{stroke:var(--avaro)} .s-dim{stroke:var(--dim)}
 .s-laghu{stroke:var(--laghu)} .s-dru1{stroke:var(--dru1)} .s-dru2{stroke:var(--dru2)}
 .f-laghu{fill:var(--laghu)} .f-dru1{fill:var(--dru1)} .f-dru2{fill:var(--dru2)}
 .chord{fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
 .nd{cursor:pointer}
 .nd circle,.bt circle.mk{transform-box:fill-box;transform-origin:center;transition:transform .15s ease}
-.nd text{font-family:var(--mono);font-weight:800;font-size:12px;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.nd text{font-family:var(--mono);font-weight:700;font-size:13px;text-anchor:middle;dominant-baseline:central;pointer-events:none}
 .nd:hover circle{transform:scale(1.18)}
-.nd.on circle{transform:scale(1.5);stroke:#fff;stroke-width:3}
+.nd.on circle{transform:scale(1.5);stroke:var(--ink);stroke-width:2.5}
 .lblg{cursor:pointer}
-.lblg.on text{fill:#fff}
-.ctr-k{font-family:var(--mono);font-weight:800;font-size:13px;fill:var(--muted);text-anchor:middle;letter-spacing:.08em}
-.ctr-big{font-family:var(--display);font-weight:800;font-size:32px;text-anchor:middle}
-.bt text{font-family:var(--mono);font-weight:800;dominant-baseline:central}
+.lblg text{transform-box:fill-box;transform-origin:center;transition:transform .15s ease}
+.lblg.on text{transform:scale(1.35)}
+.ctr-k{font-family:var(--mono);font-weight:700;font-size:14px;fill:var(--muted);text-anchor:middle;letter-spacing:.08em}
+.ctr-big{font-family:var(--display);font-weight:800;font-size:36px;text-anchor:middle}
+.bt text{font-family:var(--mono);font-weight:700;dominant-baseline:central}
 .bt.on circle.mk{transform:scale(1.45)}
 .bt .halo{opacity:0;transition:opacity .1s}
 .bt.on .halo{opacity:1}
-.sol{font-size:16px;text-anchor:middle}
-.kri{font-size:14px;fill:var(--ink)}
+.sol{font-size:18px;text-anchor:middle}
+.kri{font-size:15px;fill:var(--ink)}
 .tala-ctr{font-family:var(--display);font-weight:800;text-anchor:middle}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -97,7 +98,7 @@ footer{color:var(--muted);font-size:13px;font-weight:600;line-height:1.5;max-wid
 <div class="wrap">
   <header>
     <div>
-      <h1>Rasa <span>Geometry</span></h1>
+      <h1>Raga <span>Geometry</span></h1>
       <p class="sub">Carnatic raga and tala, drawn to scale. Pick a raga, press play, watch both wheels move.</p>
     </div>
     <div class="picker">
@@ -246,11 +247,11 @@ function renderWheel(r){
       const a=P(C,R,ang(SEMI[notes[i]])), b=P(C,R,ang(SEMI[notes[i+1]]));
       const m=[((+a[0]+ +b[0])/2).toFixed(2),((+a[1]+ +b[1])/2).toFixed(2)];
       o+=`<path class="chord ${cl}" d="M${a[0]} ${a[1]}L${m[0]} ${m[1]}L${b[0]} ${b[1]}" marker-mid="url(#${mk})"/>`;}return o;};
-  s+=`<g filter="url(#glow)">${chords(r.aro,RA,"s-aro","mA")}${chords(r.avaro,RV,"s-av","mV")}</g>`;
+  s+=`<g>${chords(r.aro,RA,"s-aro","mA")}${chords(r.avaro,RV,"s-av","mV")}</g>`;
   const dots=(notes,R,rad,pre,fill,tc,dir)=>{let o="";const seen=new Set();notes.forEach(n=>{const k=SEMI[n]%12;if(seen.has(k))return;seen.add(k);
       const p=P(C,R,ang(k));const lab=n==="S'"?"S":n;
       o+=`<g class="nd" id="${pre}-${k}" data-note="${lab}" data-dir="${dir}" tabindex="0" role="button" aria-label="Play ${lab}"><circle cx="${p[0]}" cy="${p[1]}" r="${rad}" style="fill:var(${fill})"/><text x="${p[0]}" y="${p[1]}" style="fill:${tc}">${lab}</text></g>`;});return o;};
-  s+=dots(r.aro,RA,17,"na","--aro","#140e00","Arohana")+dots(r.avaro,RV,15,"nv","--avaro","#16000b","Avarohana");
+  s+=dots(r.aro,RA,17,"na","--aro","#1c1200","Arohana")+dots(r.avaro,RV,15,"nv","--avaro","#ffffff","Avarohana");
   const cnt=a=>new Set(a.filter(n=>n!=="S'").map(n=>SEMI[n])).size;
   const ca=cnt(r.aro), cv=cnt(r.avaro), TY={5:"AUDAVA",6:"SHADAVA",7:"SAMPOORNA"};
   const ty=ca===cv?TY[ca]:TY[ca]+"–"+TY[cv];
@@ -267,11 +268,11 @@ function renderTala(){
   const C=[230,200],R=138,ang=i=>-90+45*i;
   let s=`<defs><filter id="glow2" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>`;
   s+=`<circle cx="230" cy="200" r="${R+26}" style="fill:var(--disc);stroke:var(--line);stroke-width:2"/>`;
-  s+=`<g filter="url(#glow2)" fill="none" stroke-width="9" stroke-linecap="round">
+  s+=`<g fill="none" stroke-width="9" stroke-linecap="round">
     <path class="s-laghu" d="${arc(C,R,ang(0)-16,ang(3)+16)}"/>
     <path class="s-dru1" d="${arc(C,R,ang(4)-16,ang(5)+16)}"/>
     <path class="s-dru2" d="${arc(C,R,ang(6)-16,ang(7)+16)}"/></g>`;
-  [ang(0)-22.5,ang(4)-22.5,ang(6)-22.5].forEach(a=>{const p=P(C,R-26,a),q=P(C,R+26,a);s+=`<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" stroke="#fff" stroke-width="4" stroke-linecap="round"/>`;});
+  [ang(0)-22.5,ang(4)-22.5,ang(6)-22.5].forEach(a=>{const p=P(C,R-26,a),q=P(C,R+26,a);s+=`<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" style="stroke:var(--ink)" stroke-width="4" stroke-linecap="round"/>`;});
   BEATS.forEach((b,i)=>{
     const p=P(C,R,ang(i)), so=P(C,R-40,ang(i)), ko=P(C,R+46,ang(i));
     const cx=Math.cos(ang(i)*Math.PI/180), anchor=cx>0.3?"start":cx<-0.3?"end":"middle";
@@ -281,12 +282,12 @@ function renderTala(){
     else if(b.t==="count") mk=`<circle class="mk f-${b.sec}" cx="${p[0]}" cy="${p[1]}" r="9"/>`;
     else mk=`<circle class="mk s-${b.sec}" cx="${p[0]}" cy="${p[1]}" r="11" style="fill:var(--disc)" stroke-width="4"/>`;
     s+=`<g class="bt" id="bt-${i}">
-      <circle class="halo" cx="${p[0]}" cy="${p[1]}" r="27" fill="none" stroke="#fff" stroke-width="3"/>
+      <circle class="halo" cx="${p[0]}" cy="${p[1]}" r="27" fill="none" style="stroke:var(--ink)" stroke-width="3"/>
       ${mk}
       <text class="sol f-${b.sec}" x="${so[0]}" y="${so[1]}">${b.s}</text>
       <text class="kri" x="${kx}" y="${ko[1]}" text-anchor="${anchor}">${i+1} ${b.k}${i===0?" · Sam":""}</text></g>`;
   });
-  s+=`<text class="tala-ctr" x="230" y="188" style="font-size:30px;fill:#fff">ADI</text>
+  s+=`<text class="tala-ctr" x="230" y="188" style="font-size:32px;fill:var(--ink)">ADI</text>
       <text class="tala-ctr" x="230" y="220" style="font-size:18px"><tspan class="f-laghu">4</tspan><tspan style="fill:var(--muted)"> + </tspan><tspan class="f-dru1">2</tspan><tspan style="fill:var(--muted)"> + </tspan><tspan class="f-dru2">2</tspan></text>
       <text class="ctr-k" x="230" y="244">8 AKSHARAS</text>`;
   $("tala").innerHTML=s;

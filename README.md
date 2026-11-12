@@ -1,6 +1,6 @@
 # Carnatic
 
-**Rasa Geometry**: an interactive picture of Carnatic raga and tala, drawn to scale.
+**Raga Geometry**: an interactive picture of Carnatic raga and tala, drawn to scale.
 
 Open `index.html` in a browser, or view it on GitHub Pages once Pages is enabled for this repo.
 
